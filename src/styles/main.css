@@ -1,0 +1,409 @@
+/* Reset CSS */
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+
+/* Global Styles */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
+}
+
+body,
+html {
+  background-color: #0b0b22;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-size: 12px;
+}
+
+/* Skip Link */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background-color: #bf1722;
+  color: white;
+  padding: 10px;
+  font-size: 20px;
+  z-index: 100;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 100px;
+}
+
+/* Mobile Menu */
+.menu_mobile {
+  background-color: #042c54;
+  color: white !important;
+  width: 100%;
+  display: flex;
+  font-weight: 600;
+  font-size: 20px;
+  padding: 10px;
+  justify-content: space-between;
+}
+
+.nav_mobile {
+  background-color: #042c54;
+  width: 100%;
+  display: flex;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.nav_list_mobile {
+  width: 60%;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.nav_items_mobile {
+  box-sizing: border-box;
+  display: inline-block;
+  text-align: right;
+  line-height: 24px;
+  text-transform: uppercase;
+  color: white !important;
+}
+
+.icon_menu {
+  font-size: 30px;
+}
+
+.icon_menu .hamburger-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.icon_menu .hamburger-icon {
+  display: inline-block;
+  width: 44px;
+  height: 44px;
+  text-align: center;
+  color: white !important;
+  font-size: 22px;
+}
+
+.nav_mobile a {
+  display: inline-block;
+  color: white;
+  padding: 1.3em;
+  text-decoration: none;
+}
+
+/* Desktop Navigation */
+.nav {
+  background-color: #042c54;
+  width: 100%;
+  display: flex;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.nav a:hover {
+  text-decoration: none;
+}
+
+.nav_list {
+  width: 80%;
+  padding: 0;
+  margin: 0;
+  text-align: right;
+}
+
+.logo {
+  width: 20%;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  box-sizing: border-box;
+  display: inline-block;
+  line-height: 24px;
+}
+
+.nav_items {
+  box-sizing: border-box;
+  display: inline-block;
+  text-align: right;
+  line-height: 24px;
+  text-transform: uppercase;
+}
+
+.nav a {
+  display: inline-block;
+  padding: 1.3em;
+  text-decoration: none;
+  color: white !important;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  align-items: center;
+  min-height: 380px;
+  width: 100%;
+  text-align: center;
+  background-position: center;
+  background-color: black !important;
+}
+
+.hero_inner {
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.hero_title {
+  color: #fff;
+  font-weight: 600;
+  font-size: 36px;
+  text-shadow: 1px 1px #141414;
+}
+
+.hero_sub_title {
+  color: #fff;
+  margin-top: 16px;
+  font-size: 18px;
+  font-weight: 600;
+  text-shadow: 1px 1px #141414;
+}
+
+/* Main Content */
+main {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.content {
+  padding: 32px;
+}
+
+.latest {
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.latest h1 {
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 50px;
+  color: white;
+}
+
+.list {
+  margin: 32px auto auto;
+  text-align: left;
+  display: grid;
+  grid-row-gap: 16px;
+}
+
+.list_item {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.041);
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+}
+
+.city {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  border-radius: 5px;
+  background-color: #042c54;
+  padding: 5px 10px 5px;
+  color: white;
+  font-weight: 500;
+}
+
+.list_item_content {
+  padding: 16px;
+}
+
+.list_item_thumb {
+  width: 100%;
+  max-height: 200px;
+}
+
+.list_item_rating {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #999;
+  font-weight: 500;
+}
+
+.list_item_rating_value {
+  padding: 1rem;
+  color: red;
+  text-decoration: none;
+  display: inline-block;
+  width: 44px;
+  height: 44px;
+}
+
+.list_item_title {
+  font-weight: 500;
+  font-size: 16px;
+  margin-top: 10px;
+  transition: 0.3s opacity;
+}
+
+.list_item_title:hover {
+  opacity: 0.5;
+}
+
+.list_item_title a {
+  width: 44px;
+  height: 44px;
+  text-decoration: none;
+  color: inherit;
+  padding-top: 1rem;
+}
+
+.list_item_desc {
+  margin-top: -30px;
+  font-size: 12px;
+  line-height: 1.5em;
+  color: #ffffff8f;
+}
+
+/* Footer */
+footer {
+  background-color: #042c54;
+  color: white;
+  font-size: 14px;
+  padding: 2em;
+  width: 100%;
+  text-align: center;
+}
+
+footer ul {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+footer li {
+  margin: 0.3em 0;
+  font-size: 14px;
+}
+
+/* Detail Page */
+p {
+  font-size: 16px;
+}
+.detail_page {
+  position: relative;
+  width: 100%;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  color: #fff;
+}
+
+.detail_page article {
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.detail_page article img {
+  width: 100%;
+  max-width: 800px;
+  max-height: 550px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.detail_page article .resto_name {
+  font-size: 15vmax;
+  text-align: center;
+}
+
+.detail_page article .rating_detail {
+  margin-top: 10px;
+  font-size: 2vmax;
+  text-align: center;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.detail_page article .rating_detail span {
+  color: red;
+}
+
+.detail_page article .city_detail {
+  margin-bottom: 10px;
+  font-size: 2vmax;
+  color: #fff;
+  text-align: center;
+}
+
+.detail_page article h6 {
+  font-size: 20px;
+  font-style: italic;
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
+.detail_page article p .drinks {
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.detail_page article h3 {
+  font-size: 2rem;
+  text-align: center;
+  color: #fff;
+}
+
+/* Title */
+.title_detail {
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 2.5em;
+  margin-bottom: 25px;
+  min-width: 44px;
+  min-height: 44px;
+  font-weight: bold;
+  color: white;
+}
+
+/* Like Button */
+.like {
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #4a55a2;
+
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  border-radius: 50%;
+  border: 0;
+
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+}
