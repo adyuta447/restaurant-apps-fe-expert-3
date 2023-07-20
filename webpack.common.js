@@ -7,6 +7,7 @@ const ImageminWebpackPlugin = require("imagemin-webpack-plugin").default;
 const ImageminMozjpeg = require("imagemin-mozjpeg");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin"); // Import CssMinimizerPlugin
+const WorkboxWebpackPlugin = require("workbox-webpack-plugin");
 
 module.exports = {
   entry: {
@@ -87,6 +88,22 @@ module.exports = {
           quality: 50,
           progressive: true,
         }),
+      ],
+    }),
+
+    new WorkboxWebpackPlugin.GenerateSW({
+      swDest: "./sw.bundle.js",
+      runtimeCaching: [
+        {
+          urlPattern: new RegExp("^https://restaurant-api.dicoding.dev/"),
+          handler: "StaleWhileRevalidate",
+          options: {
+            cacheName: "CACHE_NAME",
+            cacheableResponse: {
+              statuses: [200],
+            },
+          },
+        },
       ],
     }),
   ],
