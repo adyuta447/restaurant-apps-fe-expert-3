@@ -1,5 +1,5 @@
 {
-  "name": "restaurant-apps",
+  "name": "submission-katalog-restoran-fe-expert-3",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -14,7 +14,7 @@
     "fix": "eslint ./src --fix"
   },
   "keywords": [],
-  "author": "your_name <your.email@domain.com>",
+  "author": "Adyuta447",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.18.5",
@@ -24,6 +24,7 @@
     "codeceptjs": "^3.3.6",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.1",
+    "css-minimizer-webpack-plugin": "^5.0.1",
     "eslint": "^8.24.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
@@ -43,6 +44,7 @@
     "sass-loader": "^13.0.2",
     "sharp": "^0.31.1",
     "style-loader": "^3.3.1",
+    "terser-webpack-plugin": "^5.3.9",
     "ts-node": "10.9.1",
     "typescript": "5.1.6",
     "webpack": "^5.74.0",
@@ -58,6 +60,7 @@
     "lazysizes": "^5.3.2",
     "lodash.filter": "^4.6.0",
     "regenerator-runtime": "^0.13.9",
+    "sweetalert2": "^11.7.18",
     "workbox-window": "^6.5.4"
   }
 }

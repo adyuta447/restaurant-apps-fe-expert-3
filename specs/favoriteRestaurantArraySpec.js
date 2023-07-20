@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-/* eslint-disable eqeqeq */
 import { itActsAsFavoriteRestaurantModel } from "./contract/favoriteRestaurantContract";
 
 let favoriteResto = [];
@@ -7,38 +5,38 @@ let favoriteResto = [];
 const FavoriteRestaurantArray = {
   getResto(id) {
     if (!id) {
-      return;
+      return undefined;
     }
 
-    return favoriteResto.find((Resto) => Resto.id == id);
+    return favoriteResto.find((resto) => resto.id === id);
   },
 
   getAllResto() {
     return favoriteResto;
   },
 
-  putResto(Resto) {
-    if (!Resto.hasOwnProperty("id")) {
+  putResto(resto) {
+    if (!resto.hasOwnProperty("id")) {
+      return;
+    }
+    if (this.getResto(resto.id)) {
       return;
     }
 
-    // pastikan id ini belum ada dalam daftar favoriteRestaurant
-    if (this.getResto(Resto.id)) {
-      return;
-    }
-
-    favoriteResto.push(Resto);
+    favoriteResto.push(resto);
   },
 
   deleteResto(id) {
-    // cara boros menghapus film dengan meng-copy film yang ada
-    // kecuali film dengan id == id
-    favoriteResto = favoriteResto.filter((Resto) => Resto.id != id);
+    favoriteResto = favoriteResto.filter((resto) => resto.id !== id);
   },
 };
 
 describe("Favorite Restaurant Array Contract Test Implementation", () => {
-  afterEach(() => (favoriteResto = []));
+  afterEach(() => {
+    favoriteResto = [];
+  });
 
   itActsAsFavoriteRestaurantModel(FavoriteRestaurantArray);
+
+  // Additional test cases can be added here to further test the FavoriteRestaurantArray implementation
 });

@@ -160,6 +160,12 @@ body {
   background-color: black !important;
 }
 
+.hero {
+  background-image: linear-gradient(rgba(0, 0, 5, 0.5), rgba(0, 0, 5, 0.5)),
+    url("images/heros/hero-image_2-large.jpg");
+  /* Your other styles for the hero element */
+}
+
 .hero_inner {
   margin: 0 auto;
   max-width: 800px;

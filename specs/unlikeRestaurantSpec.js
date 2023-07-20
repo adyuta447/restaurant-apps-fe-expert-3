@@ -1,8 +1,7 @@
-/* eslint-disable no-undef */
-import FavoriteRestaurantIDB from '../src/scripts/data/favorite-restaurant-idb';
-import * as TestFactories from './helpers/testFactories';
+import FavoriteRestaurantIDB from "../src/scripts/data/favorite-restaurant-idb";
+import * as TestFactories from "./helpers/testFactories";
 
-describe('Unliking A restaurant', () => {
+describe("Unliking A Restaurant", () => {
   const addLikeButtonContainer = () => {
     document.body.innerHTML = '<div id="likeButtonContainer"></div>';
   };
@@ -16,32 +15,58 @@ describe('Unliking A restaurant', () => {
     await FavoriteRestaurantIDB.deleteResto(1);
   });
 
-  it('should display unlike widget when the restaurant has been liked', async () => {
+  it("should display unlike widget when the restaurant has been liked", async () => {
+    // Arrange
     await TestFactories.createLikeButtonPresenterWithRestaurant({ id: 1 });
 
-    expect(document.querySelector('[aria-label="unlike this restaurant"]'))
-      .toBeTruthy();
+    // Act & Assert
+    expect(
+      document.querySelector('[aria-label="unlike this restaurant"]')
+    ).toBeTruthy();
+    expect(
+      document.querySelector('[aria-label="like this restaurant"]')
+    ).toBeFalsy();
   });
 
-  it('should not display like widget when the restaurant has been liked', async () => {
+  it("should not display like widget when the restaurant has been liked", async () => {
+    // Arrange
     await TestFactories.createLikeButtonPresenterWithRestaurant({ id: 1 });
 
-    expect(document.querySelector('[aria-label="like this restaurant"]'))
-      .toBeFalsy();
+    // Act & Assert
+    expect(
+      document.querySelector('[aria-label="like this restaurant"]')
+    ).toBeFalsy();
+    expect(
+      document.querySelector('[aria-label="unlike this restaurant"]')
+    ).toBeTruthy();
   });
 
-  it('should be able to remove liked restaurant from the list', async () => {
+  it("should be able to remove liked restaurant from the list", async () => {
+    // Arrange
     await TestFactories.createLikeButtonPresenterWithRestaurant({ id: 1 });
-    document.querySelector('[aria-label="unlike this restaurant"]').dispatchEvent(new Event('click'));
+
+    // Act
+    document
+      .querySelector('[aria-label="unlike this restaurant"]')
+      .dispatchEvent(new Event("click"));
+
+    // Assert
     expect(await FavoriteRestaurantIDB.getAllResto()).toEqual([]);
   });
 
-  it('should not throw error if the unliked restaurant is not in the list', async () => {
+  it("should not throw error if the unliked restaurant is not in the list", async () => {
+    // Arrange
     await TestFactories.createLikeButtonPresenterWithRestaurant({ id: 1 });
-    // hapus dulu film dari daftar film yang disukai
+
+    // Remove the restaurant from the list
     await FavoriteRestaurantIDB.deleteResto(1);
-    // kemudian, simulasikan pengguna menekan widget batal menyukai film
-    document.querySelector('[aria-label="unlike this restaurant"]').dispatchEvent(new Event('click'));
+
+    // Act
+    document
+      .querySelector('[aria-label="unlike this restaurant"]')
+      .dispatchEvent(new Event("click"));
+
+    // Assert
     expect(await FavoriteRestaurantIDB.getAllResto()).toEqual([]);
   });
 });

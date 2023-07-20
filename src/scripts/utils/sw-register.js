@@ -2,17 +2,18 @@ import * as WorkboxWindow from "workbox-window";
 
 const swRegister = async () => {
   if (!("serviceWorker" in navigator)) {
-    console.log("Service Worker not supported in the browser");
+    console.warn("Service Worker is not supported in the browser.");
     return;
   }
 
-  const wb = new WorkboxWindow.Workbox("/sw.bundle.js"); // Update the path here
+  const serviceWorkerPath = "/sw.bundle.js"; // Update the path to the service worker file here
+  const wb = new WorkboxWindow.Workbox(serviceWorkerPath);
 
   try {
     await wb.register();
-    console.log("Service worker registered");
+    console.log("Service worker registered successfully.");
   } catch (error) {
-    console.log("Failed to register service worker", error);
+    console.error("Failed to register service worker.", error);
   }
 };
 

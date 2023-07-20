@@ -24,14 +24,8 @@ const main = async () => {
       const imageFilePath = path.join(targetDir, image);
       const imageFileName = path.parse(image).name;
 
-      const largeImageDest = path.join(
-        destinationDir,
-        `${imageFileName}-large.jpg`
-      );
-      const smallImageDest = path.join(
-        destinationDir,
-        `${imageFileName}-small.jpg`
-      );
+      const largeImageDest = path.join(destinationDir, `${imageFileName}-large.jpg`);
+      const smallImageDest = path.join(destinationDir, `${imageFileName}-small.jpg`);
 
       await resizeAndSaveImage(imageFilePath, largeImageDest, 1350);
       await resizeAndSaveImage(imageFilePath, smallImageDest, 600);
