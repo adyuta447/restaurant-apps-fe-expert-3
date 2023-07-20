@@ -1,4 +1,4 @@
-import CONFIG from "../../globals/config";
+import CONFIG from '../../globals/config';
 
 const createRestaurantsItemTemplate = (restaurant) => `
   <div tabindex="0" class="list_item">
@@ -16,7 +16,7 @@ const createRestaurantsItemTemplate = (restaurant) => `
 }</a></h1>
       <div class="list_item_desc">${restaurant.description.slice(
         0,
-        150
+        150,
       )}...</div>
     </div>
   </div>
@@ -39,17 +39,17 @@ const createRestaurantsDetailTemplate = (restaurant) => `
         <h6>Kategori Restaurant</h6>
         <p class="desc_categories">${restaurant.categories
           .map((item) => item.name)
-          .join(" - ")}</p>
+          .join(' - ')}</p>
       </div>
       <div class="menu_foods">
         <h6>Menu Makanan</h6>
-        <p>${restaurant.menus.foods.map((item) => item.name).join(", ")}</p>
+        <p>${restaurant.menus.foods.map((item) => item.name).join(', ')}</p>
       </div>
       <div class="menu_drinks">
         <h6>Menu Minuman</h6>
         <p class="drinks">${restaurant.menus.drinks
           .map((item) => `<small>${item.name}</small>`)
-          .join(", ")}</p>
+          .join(', ')}</p>
       </div>
       <div class="description">
         <h6>Description</h6>
@@ -63,9 +63,9 @@ const createRestaurantsDetailTemplate = (restaurant) => `
             <h6>${customer.name}</h6>
             <p>${customer.review}</p>
             <small>${customer.date}</small>
-          `
+          `,
           )
-          .join("")}
+          .join('')}
       </div>
     </div>
   </article>

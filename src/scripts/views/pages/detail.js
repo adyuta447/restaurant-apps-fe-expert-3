@@ -1,9 +1,9 @@
 /* eslint-disable no-undef */
-import RestaurantsSource from "../../data/restaurants-source";
-import UrlParser from "../../routes/url-parser";
-import { createRestaurantsDetailTemplate } from "../templates/template-creator";
-import LikeButtonPresenter from "../../utils/like-button-presenter";
-import FavoriteRestaurantIDB from "../../data/favorite-restaurant-idb";
+import RestaurantsSource from '../../data/restaurants-source';
+import UrlParser from '../../routes/url-parser';
+import { createRestaurantsDetailTemplate } from '../templates/template-creator';
+import LikeButtonPresenter from '../../utils/like-button-presenter';
+import FavoriteRestaurantIDB from '../../data/favorite-restaurant-idb';
 
 const DetailRestaurants = {
   async render() {
@@ -17,12 +17,12 @@ const DetailRestaurants = {
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const restaurant = await RestaurantsSource.detailResto(url.id);
-    const restoranContainer = document.querySelector(".content");
-    restoranContainer.classList.add("detail_page");
+    const restoranContainer = document.querySelector('.content');
+    restoranContainer.classList.add('detail_page');
     restoranContainer.innerHTML += createRestaurantsDetailTemplate(restaurant);
 
     LikeButtonPresenter.init({
-      likeButtonContainer: document.querySelector("#likeButtonContainer"),
+      likeButtonContainer: document.querySelector('#likeButtonContainer'),
       favoriteRestaurants: FavoriteRestaurantIDB,
       restaurant: {
         id: restaurant.id,
