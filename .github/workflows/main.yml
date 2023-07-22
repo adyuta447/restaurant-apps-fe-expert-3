@@ -1,26 +1,25 @@
-name: Build and Deploy
-
+name: Continuous Integration
+ 
 on:
-  push:
+  pull_request:
     branches:
       - main
-
+ 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
-
+ 
+    strategy:
+      matrix:
+        node-version: [14.x]
+ 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-
-      - name: Install Dependencies
-        run: npm install
-
-      - name: Build Application
-        run: npm run build
-
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4.1.2
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
         with:
-          branch: gh-pages
-          folder: build
+          node-version: ${{ matrix.node-version }}
+      - name: Run Automated Test
+        run: |
+          npm install
+          npm run test
